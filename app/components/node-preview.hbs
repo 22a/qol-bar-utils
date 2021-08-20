@@ -1,6 +1,9 @@
 <div class="border p-4 flex flex-col">
   <div>$type: <code>{{get @nodeData '$type'}}</code></div>
   <div>name: <code>{{@nodeData.n}}</code></div>
+  {{#if this.nodeNameImageId}}
+    <img class="w-8" src="https://xivapi.com/i/{{this.nodeNameImageId}}.png"/>
+  {{/if}}
   {{!-- <div>k: <code>{{@nodeData.k}}</code></div> --}}
   {{!-- <div>h: <code>{{@nodeData.h}}</code></div> --}}
   {{!-- <div>d: <code>{{@nodeData.d}}</code></div> --}}
