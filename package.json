@@ -67,6 +67,6 @@
     "edition": "octane"
   },
   "dependencies": {
-    "node-gzip": "^1.1.2"
+    "gzip-js": "^0.3.2"
   }
 }

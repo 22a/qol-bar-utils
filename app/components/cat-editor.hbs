@@ -1,1 +1,26 @@
-hi
+<div class="p-4 flex flex-col gap-4">
+  <label class="flex flex-col gap-2">
+    <span class="font-bold text-gray-500">
+     QoL bar export string:
+    </span>
+    <Textarea
+      class="h-32 border"
+      @value={{this.userInput}}
+    />
+  </label>
+
+  <NodePreview @nodeData={{this.qolStruct.b2}} @topLevel={{true}}/>
+
+  {{!-- <pre class="w-full h-80 overflow-scroll border"> --}}
+  {{!--   {{~this.qolStructPrettyPrint~}} --}}
+  {{!-- </pre> --}}
+
+  <label class="flex flex-col gap-2">
+    <span class="font-bold text-gray-500">
+     New QoL bar import string:
+    </span>
+    <textarea readonly="true" class="h-32 border">
+      {{~this.newExportData~}}
+    </textarea>
+  </label>
+</div>
