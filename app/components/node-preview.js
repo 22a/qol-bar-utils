@@ -15,6 +15,7 @@ export default class NodePreviewComponent extends Component {
       let iconIdPad = iconId.toString().padStart(6, '0');
       let iconBand = iconId - Math.floor(iconId % 1000);
       let iconBandPad = iconBand.toString().padStart(6, '0');
+      // https://xivapi.com/docs/Icons
       return `${iconBandPad}/${iconIdPad}`;
     } else {
       return false;
