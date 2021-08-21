@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 
 export default class NodePreviewComponent extends Component {
   get nodeNameHasImage() {
-    return this.args.nodeData.n.startsWith('::');
+    return this.args.nodeData.n && this.args.nodeData.n.startsWith('::');
   }
 
   get nodeNameImageId() {
