@@ -1,8 +1,8 @@
 {
-  "name": "qol-bar-editor",
+  "name": "qol-bar-utils",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for qol-bar-editor goes here",
+  "description": "Small description for qol-bar-utils goes here",
   "repository": "",
   "license": "MIT",
   "author": "",

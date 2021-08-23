@@ -1,5 +1,5 @@
 import EmberRouter from '@ember/routing/router';
-import config from 'qol-bar-editor/config/environment';
+import config from 'qol-bar-utils/config/environment';
 
 export default class Router extends EmberRouter {
   location = config.locationType;

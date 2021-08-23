@@ -3,9 +3,9 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { zip as gzip } from 'gzip-js';
 
-import { base64EncArr } from 'qol-bar-editor/lib/base64';
-import { exampleSchema } from 'qol-bar-editor/lib/example-input';
-import { schemaToQolBarConfig } from 'qol-bar-editor/lib/bar-utils';
+import { base64EncArr } from 'qol-bar-utils/lib/base64';
+import { exampleSchema } from 'qol-bar-utils/lib/example-input';
+import { schemaToQolBarConfig } from 'qol-bar-utils/lib/bar-utils';
 
 export default class FromJsonComponent extends Component {
   @tracked jsonInputIsInvalid = false;

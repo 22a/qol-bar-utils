@@ -2,7 +2,7 @@ import {
   defaultBarRoot,
   defaultCategory,
   defaultShortcut,
-} from 'qol-bar-editor/lib/bar-node-defaults';
+} from 'qol-bar-utils/lib/bar-node-defaults';
 
 // JQ query
 // .. | {name: .n?, command: .c?, columns: .cC?}

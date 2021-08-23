@@ -2,8 +2,8 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { unzip as gunzip } from 'gzip-js';
 
-import { base64DecToArr } from 'qol-bar-editor/lib/base64';
-import { exampleQolBarExportString } from 'qol-bar-editor/lib/example-input';
+import { base64DecToArr } from 'qol-bar-utils/lib/base64';
+import { exampleQolBarExportString } from 'qol-bar-utils/lib/example-input';
 
 const textDecoder = new TextDecoder();
 

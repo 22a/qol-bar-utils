@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   let ENV = {
-    modulePrefix: 'qol-bar-editor',
+    modulePrefix: 'qol-bar-utils',
     environment,
     rootURL: '/',
     locationType: 'auto',

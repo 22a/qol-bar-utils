@@ -1,5 +1,5 @@
-import Application from 'qol-bar-editor/app';
-import config from 'qol-bar-editor/config/environment';
+import Application from 'qol-bar-utils/app';
+import config from 'qol-bar-utils/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';
