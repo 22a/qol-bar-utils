@@ -1,0 +1,33 @@
+.custom-notify {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  max-width: 24rem;
+  overflow: hidden;
+  border-radius: .5rem;
+  background-color: white;
+  color: white;
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  z-index: 10;
+}
+
+.custom-notify .callout {
+  position: relative;
+  overflow: hidden;
+  padding: 0.75rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.custom-notify .error {
+  background-color: #DC2626;
+}
+
+.custom-notify .success {
+  background-color: #059669;
+}
+
+.custom-notify .close {
+  display: none;
+}

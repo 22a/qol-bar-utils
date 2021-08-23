@@ -1,0 +1,172 @@
+<form class="space-y-8 sm:space-y-5">
+  <div>
+    <h3 class="text-lg leading-6 font-medium text-gray-900">
+      Schema to
+      <a
+        href="https://github.com/UnknownX7/QoLBar/blob/b253c1f3fadbe41a086027b97f51fe0615e5e3b4/README.md#exporting--importing"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-indigo-500 underline"
+      >QoL Bar export string</a>
+    </h3>
+    <p class="mt-4 max-w-2xl text-sm text-gray-800 p-4 bg-yellow-100 rounded-lg">
+      <strong>
+        Careful, this is experimental.
+      </strong>
+      The concept of a <i>"schema"</i> is something I've invented to make it easer to describe bar contents.
+      It's essentially the same nested category structure as the QoL Bar config object with more verbose key names and node defaults applied such that lists of shortcuts can be built with minimal boilerplate.
+      Don't depend on this working forever.
+    </p>
+  </div>
+
+  <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
+    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label class="flex flex-row items-center space-x-2 text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+        <ToggleSwitch
+          @enabled={{this.showBarRootInput}}
+          @onToggle={{toggle "showBarRootInput" this}}
+        />
+        <span>
+          Bar Root
+        </span>
+      </label>
+
+      {{#if this.showBarRootInput}}
+        <div class="mt-1 sm:mt-0 sm:col-span-2">
+          <div
+            class="shadow-sm block w-full rounded-lg overflow-hidden"
+            {{code-mirror
+              content=this.initialBarRootPrettyPrint
+              onUpdate=this.onBarRootInputUpdate
+              readOnly=false
+            }}
+          ></div>
+
+          <p class="mt-2 text-sm text-gray-500">
+            Change the <code class="bg-gray-100 rounded border px-1">n</code> property to rename your bar
+          </p>
+
+          {{#if this.barRootInputIsInvalid}}
+            <div class="border border-red-200 text-red-500 max-w-full overflow-scroll rounded-lg p-4 mt-2">
+              {{~this.barRootInputParseErrorString~}}
+            </div>
+          {{/if}}
+        </div>
+      {{/if}}
+    </div>
+
+    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label class="flex flex-row items-center space-x-2 text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+        <ToggleSwitch
+          @enabled={{this.showCategoryInput}}
+          @onToggle={{toggle "showCategoryInput" this}}
+        />
+        <span>
+          Base Category
+        </span>
+      </label>
+
+      {{#if this.showCategoryInput}}
+        <div class="mt-1 sm:mt-0 sm:col-span-2">
+          <div
+            class="shadow-sm block w-full rounded-lg overflow-hidden"
+            {{code-mirror
+              content=this.initialCategoryPrettyPrint
+              onUpdate=this.onCategoryInputUpdate
+              readOnly=false
+            }}
+          ></div>
+
+          {{#if this.categoryInputIsInvalid}}
+            <div class="border border-red-200 text-red-500 max-w-full overflow-scroll rounded-lg p-4 mt-2">
+              {{~this.categoryInputParseErrorString~}}
+            </div>
+          {{/if}}
+        </div>
+      {{/if}}
+    </div>
+
+    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label class="flex flex-row items-center space-x-2 text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+        <ToggleSwitch
+          @enabled={{this.showShortcutInput}}
+          @onToggle={{toggle "showShortcutInput" this}}
+        />
+        <span>
+          Base Shortcut
+        </span>
+      </label>
+
+      {{#if this.showShortcutInput}}
+        <div class="mt-1 sm:mt-0 sm:col-span-2">
+          <div
+            class="shadow-sm block w-full rounded-lg overflow-hidden"
+            {{code-mirror
+              content=this.initialShortcutPrettyPrint
+              onUpdate=this.onShortcutInputUpdate
+              readOnly=false
+            }}
+          ></div>
+
+          {{#if this.shortcutInputIsInvalid}}
+            <div class="border border-red-200 text-red-500 max-w-full overflow-scroll rounded-lg p-4 mt-2">
+              {{~this.shortcutInputParseErrorString~}}
+            </div>
+          {{/if}}
+        </div>
+      {{/if}}
+    </div>
+
+    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label class="flex flex-row items-center space-x-2 text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+        <ToggleSwitch
+          @enabled={{this.showSchemaInput}}
+          @onToggle={{toggle "showSchemaInput" this}}
+        />
+        <span>
+          Schema
+        </span>
+      </label>
+      {{#if this.showSchemaInput}}
+        <div class="mt-1 sm:mt-0 sm:col-span-2">
+          <div
+            class="shadow-sm block w-full rounded-lg overflow-hidden"
+            {{code-mirror
+              content=this.initialSchemaPrettyPrint
+              onUpdate=this.onSchemaInputUpdate
+              readOnly=false
+            }}
+          ></div>
+
+          {{#if this.schemaInputIsInvalid}}
+            <div class="border border-red-200 text-red-500 max-w-full overflow-scroll rounded-lg p-4 mt-2">
+              {{~this.schemaInputParseErrorString~}}
+            </div>
+          {{/if}}
+        </div>
+      {{/if}}
+    </div>
+
+    {{!--
+      <NodePreview @nodeData={{this.newBar.b2}} @topLevel={{true}}/>
+    --}}
+
+    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+        Export string
+      </label>
+      <div class="flex flex-col items-start space-y-2 mt-1 sm:mt-0 sm:col-span-2">
+        {{#if this.allInputsValid}}
+          <div class="select-all border border-indigo-200 max-w-full overflow-scroll rounded-lg p-4 border border-transparent">
+            {{~this.newBarExportData~}}
+          </div>
+          <ClipboardButton @text={{this.newBarExportData}}/>
+        {{else}}
+          <div class="border border-transparent bg-red-700 text-white max-w-full overflow-scroll rounded-lg p-4">
+            One of your inputs is invalid JSON
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</form>

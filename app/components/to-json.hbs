@@ -1,0 +1,59 @@
+<form class="space-y-8">
+  <div>
+    <h3 class="text-lg leading-6 font-medium text-gray-900">
+      <a
+        href="https://github.com/UnknownX7/QoLBar/blob/b253c1f3fadbe41a086027b97f51fe0615e5e3b4/README.md#exporting--importing"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-indigo-500 underline"
+      >QoL Bar export string</a>
+      to JSON
+    </h3>
+    <p class="mt-2 max-w-2xl text-sm text-gray-800">
+      Decode and decompress a QoL Bar import/export string to JSON
+    </p>
+  </div>
+
+  <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
+    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+        Export string
+      </label>
+      <div class="mt-1 sm:mt-0 sm:col-span-2">
+        <Textarea
+          id="exportStringInput"
+          name="exportStringInput"
+          rows="4"
+          class="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"
+          @value={{this.userInput}}
+        />
+        <p class="mt-2 text-sm text-gray-500">
+          The above is an example, replace it with your own
+        </p>
+      </div>
+    </div>
+
+    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+        JSON config
+      </label>
+      <div class="flex flex-col space-y-2 items-start mt-1 sm:mt-0 sm:col-span-2">
+        {{#if (get this.parsedQolBar '$type')}}
+          <div
+            class="select-all max-h-64 w-full max-w-full overflow-hidden rounded-lg"
+            {{code-mirror
+              content=this.parsedQolBarJsonPrettyPrint
+              onUpdate=this.noop
+              readOnly=true
+            }}
+          ></div>
+          <ClipboardButton @text={{this.parsedQolBarJsonPrettyPrint}}/>
+        {{else}}
+          <div class="border border-red-200 text-red-500 max-w-full overflow-scroll rounded-lg p-4">
+            {{~this.parsedQolBar~}}
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</form>

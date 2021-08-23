@@ -1,5 +1,46 @@
-{{page-title "QolBarEditor"}}
+{{page-title "QoLBarEditor"}}
+<EmberNotify @defaultClass="custom-notify" />
 
-{{outlet}}
+<div class="bg-gray-100 h-screen overflow-scroll">
+  <div class="bg-indigo-600 pb-32">
+    <nav class="bg-indigo-600">
+      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 px-4 sm:px-0">
+          <div class="flex items-center space-x-2">
+            <LinkTo
+              @route="to-json"
+              @activeClass="bg-indigo-700 text-white"
+              class="text-white hover:bg-indigo-500  hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium"
+            >
+              to JSON
+            </LinkTo>
 
-<CatEditor/>
+            <LinkTo
+              @route="from-json"
+              @activeClass="bg-indigo-700 text-white"
+              class="text-white hover:bg-indigo-500  hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium"
+            >
+              from JSON
+            </LinkTo>
+
+            <LinkTo
+              @route="from-schema"
+              @activeClass="bg-indigo-700 text-white"
+              class="text-white hover:bg-indigo-500  hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium"
+            >
+              from Schema
+            </LinkTo>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <main class="-mt-32">
+    <div class="max-w-7xl mx-auto pb-8 px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-lg shadow px-5 py-6 sm:px-6">
+        {{outlet}}
+      </div>
+    </div>
+  </main>
+</div>
