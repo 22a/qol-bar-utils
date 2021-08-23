@@ -40,11 +40,11 @@
       </label>
       <div class="flex flex-col items-start space-y-2 mt-1 sm:mt-0 sm:col-span-2">
         {{#if this.jsonInputIsInvalid}}
-          <div class="border border-red-200 text-red-500 max-w-full overflow-scroll rounded-lg p-4">
+          <div class="border border-red-200 text-red-500 max-w-full overflow-auto rounded-lg p-4">
             {{~this.jsonInputParseErrorString~}}
           </div>
         {{else}}
-          <div class="select-all border border-indigo-200 max-w-full overflow-scroll rounded-lg p-4 border border-transparent">
+          <div class="select-all border border-indigo-200 max-w-full overflow-auto rounded-lg p-4 border border-transparent">
             {{~this.newBarExportData~}}
           </div>
           <ClipboardButton @text={{this.newBarExportData}}/>

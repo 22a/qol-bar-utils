@@ -47,7 +47,7 @@
           </p>
 
           {{#if this.barRootInputIsInvalid}}
-            <div class="border border-red-200 text-red-500 max-w-full overflow-scroll rounded-lg p-4 mt-2">
+            <div class="border border-red-200 text-red-500 max-w-full overflow-auto rounded-lg p-4 mt-2">
               {{~this.barRootInputParseErrorString~}}
             </div>
           {{/if}}
@@ -78,7 +78,7 @@
           ></div>
 
           {{#if this.categoryInputIsInvalid}}
-            <div class="border border-red-200 text-red-500 max-w-full overflow-scroll rounded-lg p-4 mt-2">
+            <div class="border border-red-200 text-red-500 max-w-full overflow-auto rounded-lg p-4 mt-2">
               {{~this.categoryInputParseErrorString~}}
             </div>
           {{/if}}
@@ -109,7 +109,7 @@
           ></div>
 
           {{#if this.shortcutInputIsInvalid}}
-            <div class="border border-red-200 text-red-500 max-w-full overflow-scroll rounded-lg p-4 mt-2">
+            <div class="border border-red-200 text-red-500 max-w-full overflow-auto rounded-lg p-4 mt-2">
               {{~this.shortcutInputParseErrorString~}}
             </div>
           {{/if}}
@@ -139,7 +139,7 @@
           ></div>
 
           {{#if this.schemaInputIsInvalid}}
-            <div class="border border-red-200 text-red-500 max-w-full overflow-scroll rounded-lg p-4 mt-2">
+            <div class="border border-red-200 text-red-500 max-w-full overflow-auto rounded-lg p-4 mt-2">
               {{~this.schemaInputParseErrorString~}}
             </div>
           {{/if}}
@@ -157,12 +157,12 @@
       </label>
       <div class="flex flex-col items-start space-y-2 mt-1 sm:mt-0 sm:col-span-2">
         {{#if this.allInputsValid}}
-          <div class="select-all border border-indigo-200 max-w-full overflow-scroll rounded-lg p-4 border border-transparent">
+          <div class="select-all border border-indigo-200 max-w-full overflow-auto rounded-lg p-4 border border-transparent">
             {{~this.newBarExportData~}}
           </div>
           <ClipboardButton @text={{this.newBarExportData}}/>
         {{else}}
-          <div class="border border-transparent bg-red-700 text-white max-w-full overflow-scroll rounded-lg p-4">
+          <div class="border border-transparent bg-red-700 text-white max-w-full overflow-auto rounded-lg p-4">
             One of your inputs is invalid JSON
           </div>
         {{/if}}
