@@ -10,4 +10,5 @@ Router.map(function () {
   this.route('to-json');
   this.route('from-json');
   this.route('from-schema');
+  this.route('not-found', { path: '/*path' });
 });
