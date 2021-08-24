@@ -9,7 +9,7 @@
         class="text-indigo-500 underline"
       >QoL Bar export string</a>
     </h3>
-    <p class="mt-4 max-w-2xl text-sm text-gray-800 p-4 bg-yellow-100 rounded-lg">
+    <p class="hidden mt-4 max-w-2xl text-sm text-gray-800 p-4 bg-yellow-100 rounded-lg">
       <strong>
         Careful, this is experimental.
       </strong>
@@ -147,8 +147,32 @@
       {{/if}}
     </div>
 
-    {{!--
+    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label class="flex flex-row items-center space-x-2 text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+        <ToggleSwitch
+          @enabled={{this.showGeneratedJSON}}
+          @onToggle={{toggle "showGeneratedJSON" this}}
+        />
+        <span>
+          JSON intermediate representation
+        </span>
+      </label>
+      {{#if this.showGeneratedJSON}}
+        <div class="mt-1 sm:mt-0 sm:col-span-2">
+          <div
+            class="shadow-sm block w-full rounded-lg overflow-hidden"
+            {{code-mirror
+              content=this.newBarJsonPrettyPrint
+              onUpdate=this.noop
+              readOnly=false
+            }}
+          ></div>
+        </div>
+      {{/if}}
+    </div>
+
       <NodePreview @nodeData={{this.newBar.b2}} @topLevel={{true}}/>
+    {{!--
     --}}
 
     <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">

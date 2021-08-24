@@ -10,13 +10,14 @@ import {
   defaultBarRoot,
   defaultCategory,
   defaultShortcut,
-} from 'qol-bar-utils/lib/bar-node-defaults';
+} from 'qol-bar-utils/lib/config-defaults';
 
 export default class FromSchemaComponent extends Component {
   @tracked showBarRootInput = false;
   @tracked showCategoryInput = false;
   @tracked showShortcutInput = false;
-  @tracked showSchemaInput = true;
+  @tracked showSchemaInput = false;
+  @tracked showGeneratedJSON = true;
 
   initialBarRootPrettyPrint = JSON.stringify(defaultBarRoot, null, 2);
   @tracked barRoot = defaultBarRoot;
@@ -54,6 +55,10 @@ export default class FromSchemaComponent extends Component {
       this.category,
       this.shortcut
     );
+  }
+
+  get newBarJsonPrettyPrint() {
+    return JSON.stringify(this.newBar, null, 2);
   }
 
   get newBarExportData() {
@@ -113,4 +118,6 @@ export default class FromSchemaComponent extends Component {
       this.schemaInputParseErrorString = e;
     }
   }
+
+  noop() {}
 }
