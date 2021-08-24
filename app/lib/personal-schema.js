@@ -1,3 +1,5 @@
+import { emoteMetadata } from 'qol-bar-utils/lib/ffxiv/emotes';
+
 const jobCategories = [
   {
     name: 'Tanks',
@@ -75,7 +77,7 @@ const jobsBar = {
   }),
 };
 
-const emotes = [
+const visibleEmotes = [
   '/wave',
   '/point',
   '/clap',
@@ -92,6 +94,10 @@ const emotes = [
   '/heeltoe',
 ];
 
+const visibleEmotesMetadata = emoteMetadata.filter((emoteMeta) =>
+  visibleEmotes.includes(emoteMeta.textCommand)
+);
+
 const emotesBar = {
   iconId: 61182,
   iconArgument: 'h',
@@ -105,9 +111,10 @@ const emotesBar = {
       tooltip: 'Emote List',
       command: '/emotelist',
     },
-    ...emotes.map((emoteComand) => ({
-      name: emoteComand,
-      command: emoteComand,
+    ...visibleEmotesMetadata.map((emoteMetadata) => ({
+      command: emoteMetadata.textCommand,
+      tooltip: emoteMetadata.name,
+      iconId: emoteMetadata.iconId,
     })),
   ].reverse(),
 };
