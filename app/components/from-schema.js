@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { zip as gzip } from 'gzip-js';
 
 import { base64EncArr } from 'qol-bar-utils/lib/base64';
-import { exampleSchema } from 'qol-bar-utils/lib/example-input';
+import { schema as exampleSchema } from 'qol-bar-utils/lib/personal-schema';
 import { schemaToQolBarConfig } from 'qol-bar-utils/lib/bar-utils';
 import {
   defaultBarRoot,
