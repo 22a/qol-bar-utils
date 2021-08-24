@@ -16,8 +16,11 @@
 
   <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
     <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-      <label class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-        Export string
+      <label class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2 space-x-2">
+        <span>
+          Export string
+        </span>
+        <InputBadge/>
       </label>
       <div class="mt-1 sm:mt-0 sm:col-span-2">
         <Textarea
@@ -34,8 +37,11 @@
     </div>
 
     <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-      <label class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-        JSON config
+      <label class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2 space-x-2">
+        <span>
+          JSON config
+        </span>
+        <OutputBadge/>
       </label>
       <div class="flex flex-col space-y-2 items-start mt-1 sm:mt-0 sm:col-span-2">
         {{#if (get this.parsedQolBar '$type')}}

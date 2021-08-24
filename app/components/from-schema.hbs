@@ -29,6 +29,7 @@
         <span>
           Bar Root
         </span>
+        <InputBadge/>
       </label>
 
       {{#if this.showBarRootInput}}
@@ -64,6 +65,7 @@
         <span>
           Base Category
         </span>
+        <InputBadge/>
       </label>
 
       {{#if this.showCategoryInput}}
@@ -95,6 +97,7 @@
         <span>
           Base Shortcut
         </span>
+        <InputBadge/>
       </label>
 
       {{#if this.showShortcutInput}}
@@ -126,6 +129,7 @@
         <span>
           Schema
         </span>
+        <InputBadge/>
       </label>
       {{#if this.showSchemaInput}}
         <div class="mt-1 sm:mt-0 sm:col-span-2">
@@ -156,6 +160,7 @@
         <span>
           JSON intermediate representation
         </span>
+        <OutputBadge/>
       </label>
       {{#if this.showGeneratedJSON}}
         <div class="mt-1 sm:mt-0 sm:col-span-2">
@@ -176,8 +181,11 @@
     --}}
 
     <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-      <label class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-        Export string
+      <label class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2 space-x-2">
+        <span>
+          Export string
+        </span>
+        <OutputBadge/>
       </label>
       <div class="flex flex-col items-start space-y-2 mt-1 sm:mt-0 sm:col-span-2">
         {{#if this.allInputsValid}}
