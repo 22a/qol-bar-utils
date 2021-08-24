@@ -82,43 +82,49 @@ export const schemaToQolBarConfig = (
 
 const _schemaToQolBarConfig = (schema, baseCategory, baseShortcut) => {
   return schema.map((node) => {
-    let obj = clone(node.subList ? baseCategory : baseShortcut);
+    let baseNode = clone(node.subList ? baseCategory : baseShortcut);
     if (node.subList) {
-      obj.sL = _schemaToQolBarConfig(node.subList, baseCategory, baseShortcut);
+      baseNode.sL = _schemaToQolBarConfig(
+        node.subList,
+        baseCategory,
+        baseShortcut
+      );
     }
 
     if (node.iconId || node.tooltip) {
       if (node.iconId) {
-        obj.n = '';
-        obj.n += `::${node.iconArgument || obj.iconArgument}${node.iconId}`;
+        baseNode.n = '';
+        baseNode.n += `::${node.iconArgument || baseNode.iconArgument}${
+          node.iconId
+        }`;
       }
       if (node.tooltip) {
-        obj.n += `##${node.tooltip}`;
+        baseNode.n += `##${node.tooltip}`;
       }
     } else {
-      obj.n = node.name;
+      baseNode.n = node.name;
     }
 
     shortcutConfigProperties.forEach((p) => {
       if (
         p.verbose !== 'subList' &&
         node[p.verbose] !== undefined &&
-        node[p.verbose] !== p.default
+        node[p.verbose] !== baseNode[p.key]
       ) {
-        obj[p.key] = clone(node[p.verbose]);
+        baseNode[p.key] = clone(node[p.verbose]);
       }
       // omit default config values
-      if (obj[p.key] === p.default) {
-        delete obj[p.key];
+      if (baseNode[p.key] === p.default) {
+        delete baseNode[p.key];
       }
     });
 
     // omit derived properties like tooltip and iconId that the plugin doesn't understand
     derivedProperties.forEach((p) => {
-      delete obj[p];
+      delete baseNode[p];
     });
 
-    // console.log(obj);
-    return obj;
+    // console.log(baseNode);
+    return baseNode;
   });
 };

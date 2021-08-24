@@ -3,10 +3,12 @@ export const defaultBarRoot = {
   b2: {
     $type: 'b2',
     n: `QoLBarUtils Export ${Math.floor(Date.now() / 1000)}`,
-    bW: 24,
+    bW: 30,
     s: 2,
-    sP: [4, 4],
+    d: 3,
+    sP: [2, 2],
     nB: true,
+    p: [0.09, 0.26],
     sL: [],
   },
   v: '2.1.3.4',
@@ -18,10 +20,11 @@ export const defaultCategory = {
   sL: [],
   iconArgument: 'h',
   cNB: true,
-  cW: 24,
+  cW: 30,
   cH: true,
-  cSP: [4, 4],
+  cSP: [2, 2],
   cS: 1.5,
+  cF: 0.5,
 };
 
 export const defaultShortcut = {
