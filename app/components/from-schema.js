@@ -16,9 +16,9 @@ export default class FromSchemaComponent extends Component {
   @tracked showBarRootInput = false;
   @tracked showCategoryInput = false;
   @tracked showShortcutInput = false;
-  @tracked showSchemaInput = false;
+  @tracked showSchemaInput = true;
   @tracked showGeneratedJSON = false;
-  @tracked showNodePreview = true;
+  @tracked showNodePreview = false;
 
   initialBarRootPrettyPrint = JSON.stringify(defaultBarRoot, null, 2);
   @tracked barRoot = defaultBarRoot;

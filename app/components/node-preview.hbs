@@ -17,8 +17,8 @@
       {{#each @nodeData.sL as |childNode|}}
         <NodePreview
           @nodeData={{childNode}}
-          @childDirection="col"
         />
+        {{!--@childDirection="col"--}}
       {{/each}}
     </div>
   {{/if}}
