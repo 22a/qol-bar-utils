@@ -46,7 +46,7 @@
       <div class="flex flex-col space-y-2 items-start mt-1 sm:mt-0 sm:col-span-2">
         {{#if (get this.parsedQolBar '$type')}}
           <div
-            class="select-all max-h-64 w-full max-w-full overflow-hidden rounded-lg"
+            class="shadow-sm block w-full rounded-lg overflow-hidden"
             {{code-mirror
               content=this.parsedQolBarJsonPrettyPrint
               onUpdate=this.noop
