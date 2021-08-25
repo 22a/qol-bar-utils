@@ -1,6 +1,6 @@
 <form class="space-y-8 sm:space-y-5">
-  <div>
-    <h3 class="text-lg leading-6 font-medium text-gray-900">
+  <div class="flex flex-col lg:flex-row lg:justify-between lg:space-x-4">
+    <h3 class="flex-none flex-shrink-none text-lg leading-6 font-medium text-gray-900">
       Schema to
       <a
         href="https://github.com/UnknownX7/QoLBar/blob/b253c1f3fadbe41a086027b97f51fe0615e5e3b4/README.md#exporting--importing"
@@ -9,10 +9,9 @@
         class="text-indigo-500 underline"
       >QoL Bar export string</a>
     </h3>
-    <p class="mt-4 max-w-2xl text-sm text-gray-800 p-4 bg-yellow-100 rounded-lg">
-
+    <p class="mt-4 lg:mt-0 max-w-2xl text-sm text-gray-800 p-4 bg-yellow-100 rounded-lg">
       <strong>
-        Careful, this is experimental.
+        This is experimental.
       </strong>
       The concept of a <i>"schema"</i> is something I've invented to make it easer to describe bar contents.
       It's essentially the same nested category structure as the QoL Bar config object with more verbose key names and node defaults applied such that lists of shortcuts can be built with minimal boilerplate.
@@ -154,6 +153,16 @@
               readOnly=false
             }}
           ></div>
+
+          <p class="mt-2 text-sm text-gray-500">
+            The
+            <code class="bg-gray-100 rounded border px-1">tooltip</code>,
+            <code class="bg-gray-100 rounded border px-1">iconId</code>,
+            and
+            <code class="bg-gray-100 rounded border px-1">iconArgument</code>
+            schema properties are used to automatically generate the bar/shortcut name. Besides these three, all schema properties map 1:1 to QoL Bar default config keys, see:
+            <InfoButton class="align-middle -mt-1" @onClick={{set this "showConfigLegendSidePanel" true}}/>
+          </p>
 
           {{#if this.schemaInputIsInvalid}}
             <div class="border border-red-200 text-red-500 max-w-full overflow-auto rounded-lg p-4 mt-2">
