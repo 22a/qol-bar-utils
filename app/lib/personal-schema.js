@@ -103,7 +103,6 @@ const emotesBar = {
   iconArgument: 'h',
   tooltip: 'Emotes',
   categoryFontScale: 0.5,
-  categoryScale: 1.5,
   categoryWidth: 200,
   subList: [
     {
@@ -123,7 +122,6 @@ const raidBar = {
   iconId: 70,
   tooltip: 'Raid',
   categoryFontScale: 0.75,
-  categoryScale: 1.5,
   subList: [
     {
       iconId: 56,
