@@ -9,7 +9,7 @@ export const defaultBarRoot = {
     sP: [4, 4],
     nB: true,
     p: [0.07, 0.26],
-    l: true,
+    l: false,
     sL: [],
   },
   v: '2.1.3.4',
