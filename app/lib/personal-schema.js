@@ -138,7 +138,6 @@ const raidBar = {
 const waymarksBar = {
   iconId: 55,
   tooltip: 'Waymarks',
-  categoryStaysOpen: true,
   categoryNoBackground: false,
   subList: [
     {
