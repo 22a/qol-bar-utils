@@ -7,8 +7,9 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
+  this.route('not-found', { path: '/*path' });
+  this.route('to-json', { path: '/' });
   this.route('to-json');
   this.route('from-json');
   this.route('from-schema');
-  this.route('not-found', { path: '/*path' });
 });
