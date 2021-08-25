@@ -14,6 +14,4 @@ A web app with a set of utilities for encoding, decoding, and generating (from a
 ### Why does this exist?
 I wanted a way to build the QoL Bar hotbars using a text editor instead of clicking around in game / without needing to relaunch the game after modifying `%appdata%\XIVLauncher\pluginConfigs\QolBar.json`.
 
-It took way longer to build this than it would have taken to have just done it in game but at least now it's trivially extensible for when new jobs/emotes arrive and the bars need to be updated. Having a way to generate bars programatically is nice too:
-
-https://github.com/22a/qol-bar-utils/blob/5c22e098eacfb5ef438582e4b8105ff31728ac49/app/lib/personal-schema.js#L60-L78
+It took way longer to build this than it would have taken to have just done it in game but at least now it's trivially extensible for when new jobs/emotes arrive and the bars need to be updated. Having [a way to generate bars programatically](https://github.com/22a/qol-bar-utils/blob/5c22e098eacfb5ef438582e4b8105ff31728ac49/app/lib/personal-schema.js#L60-L78) is nice too.
