@@ -1,0 +1,30 @@
+<div class="z-20 fixed inset-0 overflow-hidden {{unless @isOpen 'pointer-events-none'}}" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+  <div class="absolute inset-0 overflow-hidden">
+    <div
+      class="{{if @isOpen 'opacity-100' 'opacity-0'}} cursor-default absolute inset-0 bg-black bg-opacity-75 transition-opacity ease-in-out duration-500"
+      aria-hidden="true"
+      role="button"
+      {{on 'click' @onClose}}
+    ></div>
+
+    <div class="fixed inset-y-0 right-0 max-w-full flex">
+      <div class="{{if @isOpen 'translate-x-0' 'translate-x-full'}} w-screen max-w-max transform transition ease-in-out duration-500 sm:duration-700">
+        <div class="h-full flex flex-col py-6 bg-indigo-100 shadow-xl overflow-x-hidden overflow-y-scroll">
+          <button
+            type="button"
+            class="absolute z-10 top-0 right-0 m-6 sm:m-2 inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            {{on "click" @onClose}}
+          >
+            <span class="sr-only">Close panel</span>
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div class="relative flex-1 px-4">
+            {{yield}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

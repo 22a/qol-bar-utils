@@ -10,6 +10,7 @@
       >QoL Bar export string</a>
     </h3>
     <p class="mt-4 max-w-2xl text-sm text-gray-800 p-4 bg-yellow-100 rounded-lg">
+
       <strong>
         Careful, this is experimental.
       </strong>
@@ -18,6 +19,7 @@
       Don't depend on this working forever.
     </p>
   </div>
+
 
   <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
     <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
@@ -44,7 +46,8 @@
           ></div>
 
           <p class="mt-2 text-sm text-gray-500">
-            Change the <code class="bg-gray-100 rounded border px-1">n</code> property to rename your bar
+            Change the <code class="bg-gray-100 rounded border px-1">n</code> property to rename your bar export, for more see:
+            <InfoButton class="align-middle -mt-1" @onClick={{set this "showConfigLegendSidePanel" true}}/>
           </p>
 
           {{#if this.barRootInputIsInvalid}}
@@ -79,6 +82,11 @@
             }}
           ></div>
 
+          <p class="mt-2 text-sm text-gray-500">
+            Set the <code class="bg-gray-100 rounded border px-1">cH</code> property to true to have your category open on hover instead of on click, for more see:
+            <InfoButton class="align-middle -mt-1" @onClick={{set this "showConfigLegendSidePanel" true}}/>
+          </p>
+
           {{#if this.categoryInputIsInvalid}}
             <div class="border border-red-200 text-red-500 max-w-full overflow-auto rounded-lg p-4 mt-2">
               {{~this.categoryInputParseErrorString~}}
@@ -110,6 +118,11 @@
               readOnly=false
             }}
           ></div>
+
+          <p class="mt-2 text-sm text-gray-500">
+            Set the <code class="bg-gray-100 rounded border px-1">c</code> property to update your shortcut's command, for more see:
+            <InfoButton class="align-middle -mt-1" @onClick={{set this "showConfigLegendSidePanel" true}}/>
+          </p>
 
           {{#if this.shortcutInputIsInvalid}}
             <div class="border border-red-200 text-red-500 max-w-full overflow-auto rounded-lg p-4 mt-2">
@@ -223,3 +236,25 @@
     </div>
   </div>
 </form>
+
+<SidePanel @isOpen={{this.showConfigLegendSidePanel}} @onClose={{set this "showConfigLegendSidePanel" false}}>
+  <div class="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:gap-8">
+    <div class="flex-1">
+      <div class="pl-2 pb-2">
+        <h3 class="text-lg leading-6 text-gray-900">
+          <span class="font-medium">Bar</span> config properties
+        </h3>
+      </div>
+      <ConfigLegendTable @config={{this.barConfigProperties}}/>
+    </div>
+
+    <div class="flex-1">
+      <div class="pl-2 pb-2">
+        <h3 class="text-lg leading-6 text-gray-900">
+          <span class="font-medium">Shortcut</span> config properties
+        </h3>
+      </div>
+      <ConfigLegendTable @config={{this.shortcutConfigProperties}}/>
+    </div>
+  </div>
+</SidePanel>

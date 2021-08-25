@@ -10,7 +10,7 @@ import {
 const clone = (value) => JSON.parse(JSON.stringify(value));
 
 // prettier-ignore
-const barConfigProperties = [
+export const barConfigProperties = [
   {key: 'n', verbose: 'name', default: '' },
   {key: 'k', verbose: 'hotkey', default: 0 },
   {key: 'sL', verbose: 'shortcutList', default: [] },
@@ -38,7 +38,7 @@ const barConfigVerboseKeyMapping = barConfigProperties.reduce(
 );
 
 // prettier-ignore
-const shortcutConfigProperties = [
+export const shortcutConfigProperties = [
   {key: 'n', verbose: 'name', default: '' },
   {key: 't', verbose: 'shortcutType', default: 0 },
   {key: 'c', verbose: 'command', default: '' },

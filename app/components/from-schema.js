@@ -5,7 +5,11 @@ import { zip as gzip } from 'gzip-js';
 
 import { base64EncArr } from 'qol-bar-utils/lib/base64';
 import { schema as exampleSchema } from 'qol-bar-utils/lib/personal-schema';
-import { schemaToQolBarConfig } from 'qol-bar-utils/lib/bar-utils';
+import {
+  schemaToQolBarConfig,
+  barConfigProperties,
+  shortcutConfigProperties,
+} from 'qol-bar-utils/lib/bar-utils';
 import {
   defaultBarRoot,
   defaultCategory,
@@ -13,6 +17,8 @@ import {
 } from 'qol-bar-utils/lib/config-defaults';
 
 export default class FromSchemaComponent extends Component {
+  barConfigProperties = barConfigProperties;
+  shortcutConfigProperties = shortcutConfigProperties;
   @tracked showBarRootInput = false;
   @tracked showCategoryInput = false;
   @tracked showShortcutInput = false;
