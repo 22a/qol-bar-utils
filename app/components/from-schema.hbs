@@ -163,7 +163,7 @@
         <OutputBadge/>
       </label>
       {{#if this.showGeneratedJSON}}
-        <div class="mt-1 sm:mt-0 sm:col-span-2">
+        <div class="mt-1 sm:mt-0 sm:col-span-2 flex flex-col space-y-2">
           <div
             class="shadow-sm block w-full rounded-lg overflow-hidden"
             {{code-mirror
@@ -172,6 +172,10 @@
               readOnly=false
             }}
           ></div>
+          <div>
+            <ClipboardButton @text={{this.newBarJsonPrettyPrint}}/>
+            <ConsoleLogButton @data={{this.newBar}}/>
+          </div>
         </div>
       {{/if}}
     </div>
