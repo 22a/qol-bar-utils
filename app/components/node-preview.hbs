@@ -1,29 +1,25 @@
-<div class="border p-4 flex flex-col">
-  <div>$type: <code>{{get @nodeData '$type'}}</code></div>
-  <div>name: <code>{{@nodeData.n}}</code></div>
-  {{#if this.nodeNameImageId}}
-    <img class="w-8" src="https://xivapi.com/i/{{this.nodeNameImageId}}.png"/>
-  {{/if}}
-  {{!-- <div>k: <code>{{@nodeData.k}}</code></div> --}}
-  {{!-- <div>h: <code>{{@nodeData.h}}</code></div> --}}
-  {{!-- <div>d: <code>{{@nodeData.d}}</code></div> --}}
-  {{!-- <div>a: <code>{{@nodeData.a}}</code></div> --}}
-  {{!-- <div>v: <code>{{@nodeData.v}}</code></div> --}}
-  {{!-- <div>ht: <code>{{@nodeData.ht}}</code></div> --}}
-  {{!-- <div>bW: <code>{{@nodeData.bW}}</code></div> --}}
-  {{!-- <div>e: <code>{{@nodeData.e}}</code></div> --}}
-  {{!-- <div>position: <code>{{@nodeData.p}}</code></div> --}}
-  {{!-- <div>l: <code>{{@nodeData.l}}</code></div> --}}
-  {{!-- <div>co: <code>{{@nodeData.co}}</code></div> --}}
-  {{!-- <div>s: <code>{{@nodeData.s}}</code></div> --}}
-  {{!-- <div>rA: <code>{{@nodeData.rA}}</code></div> --}}
-  {{!-- <div>fS: <code>{{@nodeData.fS}}</code></div> --}}
-  {{!-- <div>spacing: <code>{{@nodeData.sp}}</code></div> --}}
-  {{!-- <div>no-background: <code>{{@nodeData.nB}}</code></div> --}}
-  <div>command: <code>{{@nodeData.c}}</code></div>
-  <div class="flex {{if @topLevel 'flex-col' 'flex-row'}}">children:
-    {{#each @nodeData.sL as |childNode|}}
-      <NodePreview @nodeData={{childNode}}/>
-    {{/each}}
+<div class="min-w-max	bg-indigo-500 bg-opacity-5 p-4 mt-4 mr-2 border border-indigo-300 shadow rounded-lg text-sm">
+  <div class="flex space-x-2 items-center">
+    {{#if this.nodeNameImageId}}
+      <img class="w-8" alt="Job icon" src="https://xivapi.com/i/{{this.nodeNameImageId}}.png"/>
+    {{/if}}
+
+    <span class="select-all p-1 bg-gray-100 border border-gray-300 rounded-md">
+      {{@nodeData.n}}
+    </span>
+
+    <span class="select-all p-1 bg-gray-100 border border-gray-300 rounded-md">
+      {{@nodeData.c}}
+    </span>
   </div>
+  {{#if @nodeData.sL}}
+    <div class="flex flex-{{@childDirection}}">
+      {{#each @nodeData.sL as |childNode|}}
+        <NodePreview
+          @nodeData={{childNode}}
+          @childDirection="col"
+        />
+      {{/each}}
+    </div>
+  {{/if}}
 </div>

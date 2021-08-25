@@ -188,8 +188,11 @@
         <OutputBadge/>
       </label>
       {{#if this.showNodePreview}}
-        <div class="w-full max-h-96 overflow-auto rounded-lg border border-indigo-400">
-          <NodePreview @nodeData={{this.newBar.b2}} @topLevel={{true}}/>
+        <div class="w-full max-h-96 overflow-auto rounded-lg border border-indigo-400 p-4">
+          <NodePreview
+            @nodeData={{this.newBar.b2}}
+            @childDirection="col"
+          />
         </div>
       {{/if}}
     </div>
