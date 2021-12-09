@@ -16,43 +16,45 @@ const jobCategories = [
       { name: 'WHM', iconId: 62124, gearsetId: 5 },
       { name: 'SCH', iconId: 62128, gearsetId: 6 },
       { name: 'AST', iconId: 62133, gearsetId: 7 },
+      { name: 'SGE', iconId: 62140, gearsetId: 8 },
     ],
   },
   {
     name: 'DPS',
     jobs: [
-      { name: 'MNK', iconId: 62120, gearsetId: 8 },
-      { name: 'DRG', iconId: 62122, gearsetId: 9 },
-      { name: 'NIN', iconId: 62130, gearsetId: 10 },
-      { name: 'SAM', iconId: 62134, gearsetId: 11 },
-      { name: 'BRD', iconId: 62123, gearsetId: 12 },
-      { name: 'MCH', iconId: 62131, gearsetId: 13 },
-      { name: 'DNC', iconId: 62138, gearsetId: 14 },
-      { name: 'BLM', iconId: 62125, gearsetId: 15 },
-      { name: 'SMN', iconId: 62127, gearsetId: 16 },
-      { name: 'RDM', iconId: 62135, gearsetId: 17 },
-      { name: 'BLU', iconId: 62136, gearsetId: 18 },
+      { name: 'MNK', iconId: 62120, gearsetId: 9 },
+      { name: 'DRG', iconId: 62122, gearsetId: 10 },
+      { name: 'NIN', iconId: 62130, gearsetId: 11 },
+      { name: 'SAM', iconId: 62134, gearsetId: 12 },
+      { name: 'RPR', iconId: 62139, gearsetId: 13 },
+      { name: 'BRD', iconId: 62123, gearsetId: 14 },
+      { name: 'MCH', iconId: 62131, gearsetId: 15 },
+      { name: 'DNC', iconId: 62138, gearsetId: 16 },
+      { name: 'BLM', iconId: 62125, gearsetId: 17 },
+      { name: 'SMN', iconId: 62127, gearsetId: 18 },
+      { name: 'RDM', iconId: 62135, gearsetId: 19 },
+      { name: 'BLU', iconId: 62136, gearsetId: 20 },
     ],
   },
   {
     name: 'Crafters',
     jobs: [
-      { name: 'CRP', iconId: 62108, gearsetId: 19 },
-      { name: 'BSM', iconId: 62109, gearsetId: 20 },
-      { name: 'ARM', iconId: 62110, gearsetId: 21 },
-      { name: 'GSM', iconId: 62111, gearsetId: 22 },
-      { name: 'LTW', iconId: 62112, gearsetId: 23 },
-      { name: 'WVR', iconId: 62113, gearsetId: 24 },
-      { name: 'ALC', iconId: 62114, gearsetId: 25 },
-      { name: 'CUL', iconId: 62115, gearsetId: 26 },
+      { name: 'CRP', iconId: 62108, gearsetId: 21 },
+      { name: 'BSM', iconId: 62109, gearsetId: 22 },
+      { name: 'ARM', iconId: 62110, gearsetId: 23 },
+      { name: 'GSM', iconId: 62111, gearsetId: 24 },
+      { name: 'LTW', iconId: 62112, gearsetId: 25 },
+      { name: 'WVR', iconId: 62113, gearsetId: 26 },
+      { name: 'ALC', iconId: 62114, gearsetId: 27 },
+      { name: 'CUL', iconId: 62115, gearsetId: 28 },
     ],
   },
   {
     name: 'Gatherers',
     jobs: [
-      { name: 'MIN', iconId: 62116, gearsetId: 27 },
-      { name: 'BTN', iconId: 62117, gearsetId: 28 },
-      { name: 'FSH', iconId: 62118, gearsetId: 28 },
+      { name: 'MIN', iconId: 62116, gearsetId: 29 },
+      { name: 'BTN', iconId: 62117, gearsetId: 30 },
+      { name: 'FSH', iconId: 62118, gearsetId: 31 },
     ],
   },
 ];
@@ -62,7 +64,7 @@ const jobsBar = {
   tooltip: 'Jobs',
   categorySpacing: [0, 0],
   subList: jobCategories.map((jobCategory) => {
-    let firstJob = jobCategory.jobs.shift();
+    const firstJob = jobCategory.jobs.shift();
     return {
       tooltip: firstJob.name,
       iconId: firstJob.iconId,
@@ -77,22 +79,7 @@ const jobsBar = {
   }),
 };
 
-const visibleEmotes = [
-  '/wave',
-  '/point',
-  '/clap',
-  '/cheer',
-  '/playdead',
-  '/box',
-  '/slap',
-  '/cheerwave',
-  '/cheerjump',
-  '/cheeron',
-  '/dance',
-  '/sidestep',
-  '/beesknees',
-  '/heeltoe',
-];
+const visibleEmotes = ['/playdead', '/cheerwave', '/cheerjump', '/cheeron'];
 
 const visibleEmotesMetadata = emoteMetadata.filter((emoteMeta) =>
   visibleEmotes.includes(emoteMeta.textCommand)
